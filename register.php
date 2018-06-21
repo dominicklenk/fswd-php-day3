@@ -39,7 +39,7 @@ if ( isset($_POST['btn-signup']) ) {
   $emailError = "Please enter valid email address.";
  } else {
   // check whether the email exist or not
-  $query = "SELECT userEmail FROM users WHERE userEmail='$email'";
+  $query = "SELECT userEmail FROM user WHERE userEmail='$email'";
   $result = mysqli_query($conn, $query);
   $count = mysqli_num_rows($result);
   if($count!=0){
@@ -63,7 +63,7 @@ $password = hash('sha256', $pass);
  // if there's no error, continue to signup
  if( !$error ) {
   
-  $query = "INSERT INTO users(userName,userEmail,userPass) VALUES('$name','$email','$password')";
+  $query = "INSERT INTO user(userName,userEmail,userPass) VALUES('$name','$email','$password')";
   $res = mysqli_query($conn, $query);
   
   if ($res) {

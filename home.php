@@ -8,17 +8,17 @@ if( !isset($_SESSION['user']) ) {
  header("Location: index.php");
  exit;
 }
-// select logged-in users detail
-$res=mysqli_query($conn, "SELECT * FROM users WHERE userId=".$_SESSION['user']);
+// select logged-in user detail
+$res=mysqli_query($conn, "SELECT * FROM user WHERE userId=".$_SESSION['user']);
 $userRow=mysqli_fetch_array($res, MYSQLI_ASSOC);
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-<title>Welcome - <?php echo $userRow['userEmail']; ?></title>
+<title>Welcome - <?php echo $userRow['userName']; ?></title>
 </head>
 <body>
-           Hi' <?php echo $userRow['userEmail']; ?>
+           Hi' <?php echo $userRow['userName']; ?>
             
            <a href="logout.php?logout">Sign Out</a>
   
